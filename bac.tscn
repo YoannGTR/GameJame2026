@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://24ixygevhpx6"]
+
+[ext_resource type="PackedScene" uid="uid://bc5q8c6bhr3ba" path="res://Assets/Meuble/bac.glb" id="1_hpvuu"]
+
+[node name="bac" unique_id=1143604065 instance=ExtResource("1_hpvuu")]
