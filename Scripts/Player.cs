@@ -92,7 +92,7 @@ public partial class Player : CharacterBody3D
 			}
 			
 		}
-		if (Input.IsActionJustPressed("interract"))
+		if (Input.IsActionJustPressed("grab"))
 		{
 			if (heldObject == null)
 			{
@@ -101,6 +101,14 @@ public partial class Player : CharacterBody3D
 			else
 			{
 				DropObject();
+			}
+		}
+
+		if (Input.IsActionJustPressed("launch"))
+		{
+			if (heldObject != null)
+			{
+				LaunchObject();
 			}
 		}
 	}
@@ -125,6 +133,17 @@ public partial class Player : CharacterBody3D
 	{
 		heldObject.Reparent(GetTree().CurrentScene);
 		heldObject.Freeze = false;
+
+		heldObject = null;
+	}
+	private void LaunchObject()
+	{
+		Vector3 launchDirection = -camera.GlobalTransform.Basis.Z.Normalized();
+		float launchForce = 20.0f;
+
+		heldObject.Reparent(GetTree().CurrentScene);
+		heldObject.Freeze = false;
+		heldObject.ApplyCentralImpulse(launchDirection * launchForce);
 
 		heldObject = null;
 	}
