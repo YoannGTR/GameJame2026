@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://pgwnpy5kdn5c"]
+
+[ext_resource type="PackedScene" uid="uid://dhvrla7xf1nqf" path="res://pierre_1.tscn" id="1_8djea"]
+[ext_resource type="Script" uid="uid://b1q5606qtnyrt" path="res://Scripts/PickupObject.cs" id="1_okmmc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okmmc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cqtcf"]
+
+[node name="Node3D" type="Node3D" unique_id=511191946]
+
+[node name="PickupObject" type="RigidBody3D" parent="." unique_id=2066937544]
+physics_material_override = SubResource("PhysicsMaterial_okmmc")
+script = ExtResource("1_okmmc")
+
+[node name="pierre1" parent="PickupObject" unique_id=420927289 instance=ExtResource("1_8djea")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupObject" unique_id=1111040408]
+transform = Transform3D(-3.059797e-08, -1.2, 0, 0.7, -5.2453668e-08, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_cqtcf")

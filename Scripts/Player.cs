@@ -141,10 +141,16 @@ public partial class Player : CharacterBody3D
 		Vector3 launchDirection = -camera.GlobalTransform.Basis.Z.Normalized();
 		float launchForce = 20.0f;
 
-		heldObject.Reparent(GetTree().CurrentScene);
-		heldObject.Freeze = false;
-		heldObject.ApplyCentralImpulse(launchDirection * launchForce);
+		Vector3 launchOrigin = camera.GlobalPosition;
+		launchOrigin += launchDirection * 4.0f; // start a bit in front of the camera
 
+		heldObject.Reparent(GetTree().CurrentScene);
+		heldObject.GlobalPosition = launchOrigin;
+		heldObject.Freeze = false;
+		heldObject.LinearVelocity = Vector3.Zero;
+		heldObject.AngularVelocity = Vector3.Zero;
+
+		heldObject.ApplyCentralImpulse(launchDirection * launchForce);
 		heldObject = null;
 	}
 }

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dyb52mnhs2u4b" path="res://Scenes/couloir_1.tscn" id="6_cgkdp"]
 [ext_resource type="Script" uid="uid://bsue67nu5mlrp" path="res://Scripts/PauseMenu.cs" id="6_h6w1h"]
 [ext_resource type="PackedScene" uid="uid://baqxgpxkynmrr" path="res://Scenes/objet_base.tscn" id="7_h6w1h"]
-[ext_resource type="PackedScene" uid="uid://b2gb8m5b7ntag" path="res://Scenes/pierre1.tscn" id="8_6031c"]
+[ext_resource type="PackedScene" uid="uid://pgwnpy5kdn5c" path="res://Scenes/pierre_with_hitbox.tscn" id="8_6031c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgkdp"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 0.2509804)
@@ -81,7 +81,7 @@ transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08
 
 [node name="objet_base" parent="." unique_id=928773727 instance=ExtResource("7_h6w1h")]
 
-[node name="Node3D" parent="." unique_id=1588416192 instance=ExtResource("8_6031c")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="pierre" parent="." unique_id=511191946 instance=ExtResource("8_6031c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3657446, 4.7515163)
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="PauseMenu" method="OnResumePressed"]

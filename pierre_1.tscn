@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dhvrla7xf1nqf"]
+
+[ext_resource type="PackedScene" uid="uid://o0ecewkrepl0" path="res://Assets/Meuble/pierre1.glb" id="1_j4h7a"]
+
+[node name="pierre1" unique_id=420927289 instance=ExtResource("1_j4h7a")]
