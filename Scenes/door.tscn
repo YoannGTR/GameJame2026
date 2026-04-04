@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://jhqmhfo33twk"]
+
+[ext_resource type="PackedScene" uid="uid://md7u4gyon8qg" path="res://Asset/Door/Door.glb" id="1_ba8gm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ba8gm"]
+viewport_path = NodePath("DoorBoddy/Sprite3D/SubViewport")
+
+[node name="Door" unique_id=420030341 instance=ExtResource("1_ba8gm")]
+
+[node name="DoorBoddy" parent="." index="1" unique_id=1342562918]
+transform = Transform3D(3.2790985, 0, 0, 0, 0.42154184, 0, 0, 0, 0.16720703, -3.6852074, 6.012171, 0.017105669)
+
+[node name="Locker" parent="DoorBoddy" index="0" unique_id=984003706]
+transform = Transform3D(-0.06711969, 0, -8.687183e-09, 0, 1.7568759, 0, 5.8677894e-09, 0, -0.099369794, 1.8459702, 1.2284946, -1.5637321)
+
+[node name="Locker_001" parent="DoorBoddy" index="1" unique_id=2080099416]
+transform = Transform3D(0.066956274, 0, -0.0069316854, 0, 1.756876, 0, 0.0046820384, 0, 0.09912773, 1.8419762, 1.2284946, 1.2378101)
+
+[node name="Sprite3D" type="Sprite3D" parent="DoorBoddy" index="2" unique_id=1319581069]
+transform = Transform3D(0.30496183, 0, 0, 0, 2.3722434, 0, 0, 0, 5.980609, 1.8223457, -0.122600555, 2.2602406)
+texture = SubResource("ViewportTexture_ba8gm")
+
+[node name="SubViewport" type="SubViewport" parent="DoorBoddy/Sprite3D" index="0" unique_id=1629836873]
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DoorBoddy/Sprite3D/SubViewport" index="0" unique_id=586613299]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -43.0
+offset_right = 20.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="Button" type="Button" parent="DoorBoddy/Sprite3D/SubViewport/VBoxContainer" index="0" unique_id=1374553850]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "E"
+
+[node name="Label" type="Label" parent="DoorBoddy/Sprite3D/SubViewport/VBoxContainer" index="1" unique_id=935920124]
+layout_mode = 2
+text = "Ouvrir"
+
+[node name="Sprite3D2" type="Sprite3D" parent="DoorBoddy" index="3" unique_id=1078140528]
+transform = Transform3D(-0.3049619, 0, -5.2284156e-07, 0, 2.372244, 0, 2.6660617e-08, 0, -5.9806104, 1.8223461, -0.1225996, -1.9281133)
+texture = SubResource("ViewportTexture_ba8gm")
+
+[node name="SubViewport" type="SubViewport" parent="DoorBoddy/Sprite3D2" index="0" unique_id=80835350]
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DoorBoddy/Sprite3D2/SubViewport" index="0" unique_id=151093728]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -43.0
+offset_right = 20.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="Button" type="Button" parent="DoorBoddy/Sprite3D2/SubViewport/VBoxContainer" index="0" unique_id=1193413377]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "E"
+
+[node name="Label" type="Label" parent="DoorBoddy/Sprite3D2/SubViewport/VBoxContainer" index="1" unique_id=1293313801]
+layout_mode = 2
+text = "Ouvrir"

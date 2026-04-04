@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://day3ehpi600bc"]
+
+[ext_resource type="Script" uid="uid://dnr6drw0s28fs" path="res://Scripts/Niveau1.cs" id="1_cgkdp"]
+[ext_resource type="PackedScene" uid="uid://jhqmhfo33twk" path="res://Scenes/door.tscn" id="2_l8iyw"]
+[ext_resource type="PackedScene" uid="uid://c6rgfj03v32uq" path="res://Scenes/Player.tscn" id="3_dw147"]
+[ext_resource type="PackedScene" uid="uid://cxj61tc1psew5" path="res://Scenes/salle_principale.tscn" id="4_l8iyw"]
+[ext_resource type="PackedScene" uid="uid://b5n1l5lw3jl3l" path="res://Assets/Couloir1/couloir1.glb" id="5_dw147"]
+[ext_resource type="Script" uid="uid://bsue67nu5mlrp" path="res://Scripts/PauseMenu.cs" id="6_h6w1h"]
+
+[node name="niveau_1" type="Node3D" unique_id=132226348]
+script = ExtResource("1_cgkdp")
+
+[node name="salle_principale" parent="." unique_id=762880406 instance=ExtResource("4_l8iyw")]
+
+[node name="Door" parent="." unique_id=420030341 instance=ExtResource("2_l8iyw")]
+transform = Transform3D(0.9, 0, 0, 0, 0.82, 0, 0, 0, 0.8, 0.4, -0.4, 50)
+
+[node name="Door2" parent="." unique_id=9903119 instance=ExtResource("2_l8iyw")]
+transform = Transform3D(-0.9, 0, -6.9938224e-08, 0, 0.82, 0, 7.86805e-08, 0, -0.8, -0.4, -0.4, -50)
+
+[node name="Player" parent="." unique_id=2140359130 instance=ExtResource("3_dw147")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.135476, 0)
+
+[node name="couloir1" parent="." unique_id=1655196857 instance=ExtResource("5_dw147")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -55.1)
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=510524615]
+process_mode = 3
+visible = false
+script = ExtResource("6_h6w1h")
+
+[node name="Control" type="Control" parent="PauseMenu" unique_id=1853619994]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="PauseMenu/Control" unique_id=451057814]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control" unique_id=155377772]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Control/VBoxContainer" unique_id=283294446]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/Control/VBoxContainer" unique_id=1043185851]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="PauseMenu" method="OnResumePressed"]

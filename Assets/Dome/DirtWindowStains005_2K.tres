@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxhi1aetfwncb"]
+
+[ext_resource type="Texture2D" uid="uid://1w3d0xctwo75" path="res://Asset/Dome/dome_DirtWindowStains005_ALPHAMASKED_2K.png" id="1_381rh"]
+[ext_resource type="Texture2D" uid="uid://bg1apyclqqu7b" path="res://Asset/Dome/dome_DirtWindowStains005_REFL_2K_jpg-DirtWindowStains005_GLOSS_2K_jpg.png" id="2_ba5q2"]
+[ext_resource type="Texture2D" uid="uid://dihxiub6xosfd" path="res://Asset/Dome/dome_DirtWindowStains005_NRM_2K.jpg" id="3_4inrp"]
+
+[resource]
+resource_name = "DirtWindowStains005_2K"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_381rh")
+metallic = 1.0
+metallic_texture = ExtResource("2_ba5q2")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_ba5q2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_4inrp")

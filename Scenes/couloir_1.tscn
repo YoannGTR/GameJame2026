@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dyb52mnhs2u4b"]
+
+[ext_resource type="PackedScene" uid="uid://b5n1l5lw3jl3l" path="res://Asset/Couloir1/couloir1.glb" id="1_2o68s"]
+
+[node name="couloir1" unique_id=1655196857 instance=ExtResource("1_2o68s")]

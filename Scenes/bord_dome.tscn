@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dqatqmjly651w"]
+
+[ext_resource type="PackedScene" uid="uid://errk2rjonlpy" path="res://Asset/Dome/bord_dome.glb" id="1_lait4"]
+
+[node name="bord_dome" unique_id=423446388 instance=ExtResource("1_lait4")]

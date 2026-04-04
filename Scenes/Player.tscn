@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c6rgfj03v32uq"]
+
+[ext_resource type="PackedScene" uid="uid://cg0cwsr71njus" path="res://Assets/character_body_3d.tscn" id="1_iwpo4"]
+[ext_resource type="Script" uid="uid://cjhsf4qlgwghk" path="res://Scripts/Player.cs" id="2_kyqiw"]
+
+[node name="Player" unique_id=2140359130 instance=ExtResource("1_iwpo4")]
+script = ExtResource("2_kyqiw")
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=1933704208]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1349116866]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 1, 0)
+
+[node name="Camera3D" parent="." index="2" unique_id=362689508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4801016, -1.734355)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D" index="0" unique_id=350247832]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -294.0
+offset_top = 42.0
+offset_right = -3.0
+offset_bottom = 111.0
+grow_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Camera3D/VBoxContainer" index="0" unique_id=466372407]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 30
+text = "Niveau 1"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/VBoxContainer" index="1" unique_id=122042939]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/VBoxContainer/HBoxContainer" index="0" unique_id=314209733]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/VBoxContainer/HBoxContainer" index="1" unique_id=516712821]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "Peut-être qu'une porte peut s'ouvrir ?"

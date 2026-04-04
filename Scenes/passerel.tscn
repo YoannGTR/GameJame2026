@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d3qo5i8djo8m1"]
+
+[ext_resource type="PackedScene" uid="uid://db2guu0hsmq68" path="res://Asset/Passerel/passerel.glb" id="1_48igb"]
+
+[node name="passerel" unique_id=439558617 instance=ExtResource("1_48igb")]

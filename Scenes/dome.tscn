@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cuw0hwr47lcpu"]
+
+[ext_resource type="PackedScene" uid="uid://dhmxu5kuiwgyq" path="res://Asset/Dome/dome.glb" id="1_4aa8u"]
+
+[node name="dome" unique_id=842745339 instance=ExtResource("1_4aa8u")]
+
+[node name="Sphere" parent="." index="0" unique_id=794161006]
+cast_shadow = 0
