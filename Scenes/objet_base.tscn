@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://baqxgpxkynmrr"]
+
+[ext_resource type="Script" uid="uid://b1q5606qtnyrt" path="res://Scripts/PickupObject.cs" id="1_hhbkg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d88w5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gvwst"]
+
+[node name="objet_base" type="Node3D" unique_id=928773727]
+
+[node name="PickupObject" type="RigidBody3D" parent="." unique_id=297282001]
+script = ExtResource("1_hhbkg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickupObject" unique_id=503581911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_d88w5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupObject" unique_id=632583743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_gvwst")

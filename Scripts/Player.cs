@@ -18,6 +18,8 @@ public partial class Player : CharacterBody3D
 
 	private Camera3D camera;
 	private RayCast3D ray;
+	private Node3D holdPoint;
+	private RigidBody3D heldObject = null;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -65,6 +67,7 @@ public partial class Player : CharacterBody3D
 	{
 		camera = GetNode<Camera3D>("Camera3D");
 		ray = camera.GetNode<RayCast3D>("RayCast3D");
+		holdPoint = camera.GetNode<Node3D>("HoldPoint");
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
@@ -87,6 +90,42 @@ public partial class Player : CharacterBody3D
 				DoorBoddy door = collider.GetParent<DoorBoddy>();
 				door.ToggleDoor();
 			}
+			
 		}
+		if (Input.IsActionJustPressed("interract"))
+		{
+			if (heldObject == null)
+			{
+				TryPickup();
+			}
+			else
+			{
+				DropObject();
+			}
+		}
+	}
+
+	private void TryPickup()
+	{
+		if (ray.IsColliding())
+		{
+			Node collider = ray.GetCollider() as Node;
+
+			if (collider.IsInGroup("pickup"))
+			{
+				heldObject = collider as RigidBody3D;
+
+				heldObject.Freeze = true; // stop physique
+				heldObject.Reparent(holdPoint);
+				heldObject.Position = Vector3.Zero;
+			}
+		}
+	}
+	private void DropObject()
+	{
+		heldObject.Reparent(GetTree().CurrentScene);
+		heldObject.Freeze = false;
+
+		heldObject = null;
 	}
 }
