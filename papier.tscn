@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bgvhyflmx4cxl"]
+
+[ext_resource type="PackedScene" uid="uid://fd1vevlcgbcc" path="res://Assets/Meuble/papier.glb" id="1_q7p72"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d38f6"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="papier" unique_id=27807764 instance=ExtResource("1_q7p72")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="0" unique_id=590763056]
+transform = Transform3D(0.99939084, -0.034899496, 1.5255054e-09, 0, -4.371139e-08, -1, 0.034899496, 0.99939084, -4.368476e-08, -0.1, 0.01, -0.05)
+texture = SubResource("ViewportTexture_d38f6")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" index="0" unique_id=2102368024]
+transparent_bg = true
+size = Vector2i(80, 120)
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" index="0" unique_id=425866716]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -11.5
+offset_right = 92.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+text = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+autowrap_trim_flags = 0

@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bkyea3t8dj8ag" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg" id="8_v22xa"]
 [ext_resource type="Texture2D" uid="uid://gcpirdeavbot" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_METALNESS_2K_METALNESS_jpg-MetalGalvanizedSteelWorn001_ROUGHNESS_2K_METALNESS_jpg.png" id="9_b47d6"]
 [ext_resource type="Texture2D" uid="uid://dfurrd31gagvp" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_NRM16_2K_METALNESS_tiff.png" id="10_egaok"]
+[ext_resource type="PackedScene" uid="uid://bm4ex4gy80enu" path="res://Assets/Meuble/plante1.glb" id="11_egaok"]
+[ext_resource type="PackedScene" uid="uid://wd23wjgsaoqq" path="res://Assets/Meuble/plante2.glb" id="12_peflr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q232k"]
 
@@ -174,6 +176,12 @@ light_energy = 60.0
 shadow_enabled = true
 shadow_bias = 0.05
 spot_range = 80.0
+
+[node name="plante1" parent="." index="11" unique_id=975253134 instance=ExtResource("11_egaok")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4, 15.01, 48)
+
+[node name="plante2" parent="." index="12" unique_id=311861147 instance=ExtResource("12_peflr")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 10)
 
 [editable path="bord_dome/dome"]
 [editable path="passerel"]
