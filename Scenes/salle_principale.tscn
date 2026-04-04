@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhmxu5kuiwgyq" path="res://Assets/Dome/dome.glb" id="2_68onm"]
 [ext_resource type="PackedScene" uid="uid://errk2rjonlpy" path="res://Assets/Dome/bord_dome.glb" id="3_w35vr"]
 [ext_resource type="PackedScene" uid="uid://d3qo5i8djo8m1" path="res://Scenes/passerel.tscn" id="4_w35vr"]
-[ext_resource type="PackedScene" uid="uid://bubow5ms0mqft" path="res://Assets/Meuble/Canapé.glb" id="5_kcv2e"]
+[ext_resource type="PackedScene" uid="uid://dc2kj1kj5fc3d" path="res://canapé.tscn" id="6_4yloq"]
 [ext_resource type="PackedScene" uid="uid://24ixygevhpx6" path="res://bac.tscn" id="6_m6c33"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q232k"]
@@ -76,10 +76,10 @@ cast_shadow = 0
 [node name="passerel" parent="." index="6" unique_id=2056789044 instance=ExtResource("4_w35vr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42, 0, 0)
 
-[node name="Canapé" parent="." index="7" unique_id=1467092099 instance=ExtResource("5_kcv2e")]
-transform = Transform3D(-2.4041265e-07, 0, 5.5, 0, 5.5, 0, -5.5, 0, -2.4041265e-07, 16, 0, 47)
+[node name="bac" parent="." index="7" unique_id=1143604065 instance=ExtResource("6_m6c33")]
 
-[node name="bac" parent="." index="8" unique_id=1143604065 instance=ExtResource("6_m6c33")]
+[node name="Canapé" parent="." index="8" unique_id=1467092099 instance=ExtResource("6_4yloq")]
+transform = Transform3D(-2.6226832e-07, 0, 6, 0, 6, 0, -6, 0, -2.6226832e-07, 20, 0, 47)
 
 [editable path="bord_dome/dome"]
 [editable path="passerel"]
