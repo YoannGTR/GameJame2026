@@ -47,3 +47,6 @@ text = "Peut-être qu'une porte peut s'ouvrir ?"
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" index="1" unique_id=1334534365]
 target_position = Vector3(0, 0, -9)
+
+[node name="HoldPoint" type="Node3D" parent="Camera3D" index="2" unique_id=2116698607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

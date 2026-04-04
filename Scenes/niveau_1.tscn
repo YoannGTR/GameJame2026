@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxj61tc1psew5" path="res://Scenes/salle_principale.tscn" id="4_l8iyw"]
 [ext_resource type="PackedScene" uid="uid://dyb52mnhs2u4b" path="res://Scenes/couloir_1.tscn" id="6_cgkdp"]
 [ext_resource type="Script" uid="uid://bsue67nu5mlrp" path="res://Scripts/PauseMenu.cs" id="6_h6w1h"]
+[ext_resource type="PackedScene" uid="uid://baqxgpxkynmrr" path="res://Scenes/objet_base.tscn" id="7_h6w1h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgkdp"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 0.2509804)
@@ -28,7 +29,7 @@ current = true
 fov = 40.5
 
 [node name="Player" parent="." unique_id=2140359130 instance=ExtResource("3_dw147")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.135476, -58.239685)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.135476, -11.906391)
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=510524615]
 process_mode = 3
@@ -76,5 +77,7 @@ text = "Quit"
 
 [node name="couloir1" parent="." unique_id=1655196857 instance=ExtResource("6_cgkdp")]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 0, 0, -57.500725)
+
+[node name="objet_base" parent="." unique_id=928773727 instance=ExtResource("7_h6w1h")]
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="PauseMenu" method="OnResumePressed"]
