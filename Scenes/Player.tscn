@@ -44,3 +44,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
 text = "Peut-être qu'une porte peut s'ouvrir ?"
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" index="1" unique_id=1334534365]
+target_position = Vector3(0, 0, -9)

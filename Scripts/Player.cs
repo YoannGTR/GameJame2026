@@ -10,12 +10,14 @@ public partial class Player : CharacterBody3D
 	private float cameraPitch = 0.0f;
 
 	// movement
-	public const float Speed = 15.0f;
-	public const float JumpVelocity = 14.0f;
-	public const float UpGravityMultiplier = 4.0f;
-	public const float DownGravityMultiplier = 4.0f;
+	public const float WalkSpeed = 15.0f;
+	public const float SprintSpeed = 25.0f;
+	public const float JumpVelocity = 20.0f;
+	public const float UpGravityMultiplier = 5.0f;
+	public const float DownGravityMultiplier = 5.0f;
 
 	private Camera3D camera;
+	private RayCast3D ray;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -31,19 +33,20 @@ public partial class Player : CharacterBody3D
 		{
 			velocity.Y = JumpVelocity;
 		}
+		float currentSpeed = Input.IsActionPressed("sprint") ? SprintSpeed : WalkSpeed;
 
-		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
+		Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_back");		
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 
 		if (direction != Vector3.Zero)
 		{
-			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;
+			velocity.X = direction.X * currentSpeed;
+			velocity.Z = direction.Z * currentSpeed;
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, currentSpeed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, currentSpeed);
 		}
 
 		Velocity = velocity;
@@ -61,6 +64,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		camera = GetNode<Camera3D>("Camera3D");
+		ray = camera.GetNode<RayCast3D>("RayCast3D");
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
@@ -74,5 +78,15 @@ public partial class Player : CharacterBody3D
 		camera.RotationDegrees = new Vector3(cameraPitch, 0, 0);
 
 		mouseDelta = Vector2.Zero;
+
+		if (ray.IsColliding())
+		{
+			Node collider = ray.GetCollider() as Node;
+			if (collider.GetParent().IsInGroup("door") && Input.IsActionJustPressed("interract"))
+			{
+				DoorBoddy door = collider.GetParent<DoorBoddy>();
+				door.ToggleDoor();
+			}
+		}
 	}
 }

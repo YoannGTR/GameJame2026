@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://jhqmhfo33twk" path="res://Scenes/door.tscn" id="2_l8iyw"]
 [ext_resource type="PackedScene" uid="uid://c6rgfj03v32uq" path="res://Scenes/Player.tscn" id="3_dw147"]
 [ext_resource type="PackedScene" uid="uid://cxj61tc1psew5" path="res://Scenes/salle_principale.tscn" id="4_l8iyw"]
-[ext_resource type="PackedScene" uid="uid://b5n1l5lw3jl3l" path="res://Assets/Couloir1/couloir1.glb" id="5_dw147"]
+[ext_resource type="PackedScene" uid="uid://dyb52mnhs2u4b" path="res://Scenes/couloir_1.tscn" id="6_cgkdp"]
 [ext_resource type="Script" uid="uid://bsue67nu5mlrp" path="res://Scripts/PauseMenu.cs" id="6_h6w1h"]
 
 [node name="niveau_1" type="Node3D" unique_id=132226348]
@@ -18,11 +18,14 @@ transform = Transform3D(0.9, 0, 0, 0, 0.82, 0, 0, 0, 0.8, 0.4, -0.4, 50)
 [node name="Door2" parent="." unique_id=9903119 instance=ExtResource("2_l8iyw")]
 transform = Transform3D(-0.9, 0, -6.9938224e-08, 0, 0.82, 0, 7.86805e-08, 0, -0.8, -0.4, -0.4, -50)
 
-[node name="Player" parent="." unique_id=2140359130 instance=ExtResource("3_dw147")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.135476, 0)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=366867822]
+transform = Transform3D(-1, 8.742278e-08, 0, 3.821371e-15, 4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, 0, 56.119354, -63.92334)
+visible = false
+current = true
+fov = 40.5
 
-[node name="couloir1" parent="." unique_id=1655196857 instance=ExtResource("5_dw147")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -55.1)
+[node name="Player" parent="." unique_id=2140359130 instance=ExtResource("3_dw147")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.135476, -58.239685)
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=510524615]
 process_mode = 3
@@ -52,5 +55,8 @@ text = "Resume"
 [node name="QuitButton" type="Button" parent="PauseMenu/Control/VBoxContainer" unique_id=1043185851]
 layout_mode = 2
 text = "Quit"
+
+[node name="couloir1" parent="." unique_id=1655196857 instance=ExtResource("6_cgkdp")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 0, 0, -57.500725)
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="PauseMenu" method="OnResumePressed"]
