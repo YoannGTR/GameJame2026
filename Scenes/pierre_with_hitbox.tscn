@@ -10,6 +10,7 @@
 [node name="Node3D" type="Node3D" unique_id=511191946]
 
 [node name="PickupObject" type="RigidBody3D" parent="." unique_id=2066937544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41637856, 0)
 physics_material_override = SubResource("PhysicsMaterial_okmmc")
 script = ExtResource("1_okmmc")
 

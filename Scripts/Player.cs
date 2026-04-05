@@ -100,7 +100,7 @@ public partial class Player : CharacterBody3D
 				}
 			}
 
-			if (collider.IsInGroup("pickup"))
+			if (heldObject == null && collider.IsInGroup("pickup"))
 			{
 				// show the "F" prompt
 				camera.GetNode<Label>("Ramasser").Visible = true;
@@ -109,7 +109,10 @@ public partial class Player : CharacterBody3D
 				camera.GetNode<Label>("Ramasser").Visible = false;
 			}
 			
-		}
+		}else
+			{
+				camera.GetNode<Label>("Ramasser").Visible = false;
+			}
 
 		// Masquer les sprites si on ne pointe plus la porte
 		if (!isDoorPointed && lastDoor != null)
@@ -153,6 +156,11 @@ public partial class Player : CharacterBody3D
 				heldObject.Freeze = true; // stop physique
 				heldObject.Reparent(holdPoint);
 				heldObject.Position = Vector3.Zero;
+
+
+				MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
+				cube.Visible = true; 
+				cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
 			}
 		}
 	}
@@ -164,8 +172,12 @@ public partial class Player : CharacterBody3D
 		heldObject.Freeze = false;
 		heldObject.GlobalPosition = dropPosition + camera.GlobalTransform.Basis.Z * -4.0f + camera.GlobalTransform.Basis.Y * -0.0f; // drop a bit in front of the camera and bottom of the camera
 
-
 		heldObject = null;
+
+
+		MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
+		cube.Visible = false; 
+		cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
 	}
 	private void LaunchObject()
 	{
@@ -183,5 +195,10 @@ public partial class Player : CharacterBody3D
 
 		heldObject.ApplyCentralImpulse(launchDirection * launchForce);
 		heldObject = null;
+
+
+		MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
+		cube.Visible = false; 
+		cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
 	}
 }
