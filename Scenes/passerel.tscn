@@ -118,4 +118,3 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14, 10, 84)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_004/StaticBody3D" index="0" unique_id=910409089]
 shape = SubResource("ConcavePolygonShape3D_61pm3")
-disabled = true

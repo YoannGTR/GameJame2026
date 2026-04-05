@@ -31,7 +31,7 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 30
-text = "Niveau 1"
+text = "Jour 1"
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/VBoxContainer" index="1" unique_id=122042939]

@@ -157,6 +157,8 @@ public partial class Player : CharacterBody3D
 				heldObject.Reparent(holdPoint);
 				heldObject.Position = Vector3.Zero;
 
+				heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true; // désactive la collision de l'objet pour éviter les problèmes de physique
+
 
 				MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
 				cube.Visible = true; 
@@ -168,9 +170,12 @@ public partial class Player : CharacterBody3D
 	{
 		Vector3 dropPosition = camera.GlobalPosition;
 
-		heldObject.Reparent(GetTree().CurrentScene);
+		String nameOfNode = heldObject.GetChildren()[0].Name;
+		heldObject.Reparent(GetTree().CurrentScene.GetNode<Node>(nameOfNode));
 		heldObject.Freeze = false;
 		heldObject.GlobalPosition = dropPosition + camera.GlobalTransform.Basis.Z * -4.0f + camera.GlobalTransform.Basis.Y * -0.0f; // drop a bit in front of the camera and bottom of the camera
+		
+		heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // réactive la collision de l'objet
 
 		heldObject = null;
 
@@ -187,13 +192,16 @@ public partial class Player : CharacterBody3D
 		Vector3 launchOrigin = camera.GlobalPosition;
 		launchOrigin += launchDirection * 4.0f; // start a bit in front of the camera
 
-		heldObject.Reparent(GetTree().CurrentScene);
+		String nameOfNode = heldObject.GetChildren()[0].Name;
+
+		heldObject.Reparent(GetTree().CurrentScene.GetNode<Node>(nameOfNode)); // reparent to the main scene to avoid issues with physics when launching
 		heldObject.GlobalPosition = launchOrigin;
 		heldObject.Freeze = false;
 		heldObject.LinearVelocity = Vector3.Zero;
 		heldObject.AngularVelocity = Vector3.Zero;
 
 		heldObject.ApplyCentralImpulse(launchDirection * launchForce);
+		heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // réactive la collision de l'objet
 		heldObject = null;
 
 

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://gcpirdeavbot" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_METALNESS_2K_METALNESS_jpg-MetalGalvanizedSteelWorn001_ROUGHNESS_2K_METALNESS_jpg.png" id="9_b47d6"]
 [ext_resource type="Texture2D" uid="uid://dfurrd31gagvp" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_NRM16_2K_METALNESS_tiff.png" id="10_egaok"]
 [ext_resource type="PackedScene" uid="uid://bgvhyflmx4cxl" path="res://papier.tscn" id="12_egaok"]
-[ext_resource type="PackedScene" uid="uid://wd23wjgsaoqq" path="res://Assets/Meuble/plante2.glb" id="12_peflr"]
 [ext_resource type="PackedScene" uid="uid://c1arkhjkfg2dk" path="res://Assets/Meuble/petite_table.glb" id="13_peflr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q232k"]
@@ -97,7 +96,7 @@ viewport_path = NodePath("papier/Sprite3D2/SubViewport")
 
 [node name="salle_principale" unique_id=762880406 instance=ExtResource("1_q232k")]
 
-[node name="Plane" parent="." index="0" unique_id=1109323915]
+[node name="Plane" parent="." index="0" unique_id=1923753549]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -0.039749146, -0.0033721924, 0.06269455)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0" unique_id=420718032]
@@ -125,31 +124,31 @@ theme_override_colors/font_color = Color(0.11489672, 0.11489683, 0.11489678, 1)
 text = "C'est toujours parreille ..."
 horizontal_alignment = 1
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Plane_001" parent_id_path=PackedInt32Array(1053000665) index="0" unique_id=1096777461]
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane_001" parent_id_path=PackedInt32Array(1043315649) index="0" unique_id=1096777461]
 physics_material_override = SubResource("PhysicsMaterial_46yyp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_001/StaticBody3D" index="0" unique_id=2058480409]
 shape = SubResource("ConvexPolygonShape3D_68onm")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Plane_002" parent_id_path=PackedInt32Array(217729661) index="0" unique_id=585083874]
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane_002" parent_id_path=PackedInt32Array(709730819) index="0" unique_id=585083874]
 physics_material_override = SubResource("PhysicsMaterial_w35vr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_002/StaticBody3D" index="0" unique_id=1345053739]
 shape = SubResource("ConvexPolygonShape3D_8sbuy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Plane_003" parent_id_path=PackedInt32Array(1537507722) index="0" unique_id=636465347]
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane_003" parent_id_path=PackedInt32Array(1265398614) index="0" unique_id=636465347]
 physics_material_override = SubResource("PhysicsMaterial_yko1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_003/StaticBody3D" index="0" unique_id=1207126213]
 shape = SubResource("ConcavePolygonShape3D_ulmfi")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Plane_003" parent_id_path=PackedInt32Array(1537507722) index="1" unique_id=2134173802]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Plane_003" parent_id_path=PackedInt32Array(1265398614) index="1" unique_id=2134173802]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_003/StaticBody3D2" index="0" unique_id=1634831386]
 shape = SubResource("ConcavePolygonShape3D_v22xa")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Plane_004" parent_id_path=PackedInt32Array(1250036886) index="0" unique_id=801041808]
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane_004" parent_id_path=PackedInt32Array(152995333) index="0" unique_id=801041808]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_004/StaticBody3D" index="0" unique_id=160185193]
@@ -160,13 +159,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
 
 [node name="dome" parent="bord_dome" index="1" unique_id=842745339 instance=ExtResource("2_68onm")]
 
-[node name="Sphere" parent="bord_dome/dome" index="0" unique_id=1460299320]
+[node name="Sphere" parent="bord_dome/dome" index="0" unique_id=1381112200]
 cast_shadow = 0
 
 [node name="passerel" parent="." index="6" unique_id=2056789044 instance=ExtResource("4_w35vr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="passerel/Cube_002" parent_id_path=PackedInt32Array(2056789044, 2098583392) index="1" unique_id=95668921]
+[node name="Sprite3D" type="Sprite3D" parent="passerel/Cube_002" parent_id_path=PackedInt32Array(2056789044, 823896222) index="1" unique_id=95668921]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 0.002, -0.95, 1.01)
 texture = SubResource("ViewportTexture_peflr")
 
@@ -199,10 +198,10 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 45, 0, -42.5)
 [node name="lampe" parent="." index="9" unique_id=1992393679 instance=ExtResource("7_4yloq")]
 transform = Transform3D(2.1213202, 1.8371176, 1.0606601, 0, 1.5, -2.5980763, -2.1213202, 1.8371176, 1.0606601, 46.199432, 36.95225, 46.36132)
 
-[node name="Plane" parent="lampe" index="0" unique_id=1391137167]
+[node name="Plane" parent="lampe" index="0" unique_id=1774331033]
 mesh = SubResource("ArrayMesh_6exaj")
 
-[node name="Cylinder" parent="lampe" index="1" unique_id=1395238220]
+[node name="Cylinder" parent="lampe" index="1" unique_id=1805358522]
 transform = Transform3D(0.19999999, 0, 0, 0, 0.5, 0, 0, 0, 0.19999999, 0.0058317184, 0.50505066, 0.002916336)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="lampe" index="2" unique_id=1155573676]
@@ -216,10 +215,10 @@ spot_range = 80.0
 [node name="lampe2" parent="." index="10" unique_id=1650474459 instance=ExtResource("7_4yloq")]
 transform = Transform3D(2.1213202, -1.8371176, -1.0606601, 0, 1.5, -2.5980763, 2.1213202, 1.8371176, 1.0606601, -46, 36.95, 46)
 
-[node name="Plane" parent="lampe2" index="0" unique_id=1391137167]
+[node name="Plane" parent="lampe2" index="0" unique_id=1774331033]
 mesh = SubResource("ArrayMesh_6exaj")
 
-[node name="Cylinder" parent="lampe2" index="1" unique_id=1395238220]
+[node name="Cylinder" parent="lampe2" index="1" unique_id=1805358522]
 transform = Transform3D(0.19999999, 0, 0, 0, 0.5, 0, 0, 0, 0.19999999, 0.0058317184, 0.50505066, 0.002916336)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="lampe2" index="2" unique_id=168022717]
@@ -229,9 +228,6 @@ light_energy = 60.0
 shadow_enabled = true
 shadow_bias = 0.05
 spot_range = 80.0
-
-[node name="plante2" parent="." index="11" unique_id=311861147 instance=ExtResource("12_peflr")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 10)
 
 [node name="papier" parent="." index="12" unique_id=27807764 instance=ExtResource("12_egaok")]
 transform = Transform3D(1.5, 0, 0, 0, -5.4639237e-08, 1.5, 0, -1.25, -6.556708e-08, 6.815, 20.477, 49.9)
