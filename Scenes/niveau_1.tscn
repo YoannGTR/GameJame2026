@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://baqxgpxkynmrr" path="res://Scenes/objet_base.tscn" id="7_h6w1h"]
 [ext_resource type="PackedScene" uid="uid://pgwnpy5kdn5c" path="res://Scenes/pierre_with_hitbox.tscn" id="8_6031c"]
 [ext_resource type="PackedScene" uid="uid://bu4jqkl4d7swh" path="res://Scenes/ui_papier.tscn" id="9_wgjhe"]
-[ext_resource type="PackedScene" uid="uid://kwloat0cdjhu" path="res://Scenes/plante_with_hitbox.tscn" id="10_sul83"]
-[ext_resource type="PackedScene" uid="uid://rtusfj8x42ey" path="res://Scenes/bois_with_hitbox.tscn" id="12_3xrf5"]
+[ext_resource type="PackedScene" path="res://Scenes/plante_with_hitbox.tscn" id="10_sul83"]
+[ext_resource type="PackedScene" path="res://Scenes/bois_with_hitbox.tscn" id="12_3xrf5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgkdp"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 0.2509804)
