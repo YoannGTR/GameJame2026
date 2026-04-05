@@ -108,7 +108,13 @@ public partial class Player : CharacterBody3D
 			{
 				camera.GetNode<Label>("Ramasser").Visible = false;
 			}
-			
+
+			if(collider.GetParent().GetParent().IsInGroup("bac"))
+			{
+				Niveau1 niveau = GetTree().CurrentScene as Niveau1;
+				niveau.validateGoal("Où suis-je ?");
+				niveau.launchGoal("A quoi sert le bac ?");
+			}
 		}else
 			{
 				camera.GetNode<Label>("Ramasser").Visible = false;

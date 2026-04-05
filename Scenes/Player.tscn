@@ -16,35 +16,40 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 1, 0)
 transform = Transform3D(0.99987507, 0.0017451129, -0.015707318, -0.0017453283, 0.99999845, 0, 0.015707294, 2.7414426e-05, 0.9998766, 0, 4.195, -0.8)
 near = 0.37
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D" index="0" unique_id=350247832]
+[node name="UI_level" type="VBoxContainer" parent="Camera3D" index="0" unique_id=350247832]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -294.0
 offset_top = 42.0
 offset_right = -3.0
-offset_bottom = 111.0
+offset_bottom = 123.0
 grow_horizontal = 0
+size_flags_horizontal = 8
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="Camera3D/VBoxContainer" index="0" unique_id=466372407]
+[node name="Day" type="Label" parent="Camera3D/UI_level" index="0" unique_id=466372407]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 30
 text = "Jour 1"
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/VBoxContainer" index="1" unique_id=122042939]
+[node name="Goal" type="HBoxContainer" parent="Camera3D/UI_level" index="1" unique_id=122042939]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 7
+alignment = 2
 
-[node name="CheckBox" type="CheckBox" parent="Camera3D/VBoxContainer/HBoxContainer" index="0" unique_id=314209733]
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal" index="0" unique_id=314209733]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera3D/VBoxContainer/HBoxContainer" index="1" unique_id=516712821]
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal" index="1" unique_id=516712821]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
-text = "Peut-être qu'une porte peut s'ouvrir ?"
+text = "Explorer la zone"
+vertical_alignment = 1
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" index="1" unique_id=1334534365]
 target_position = Vector3(0, 0, -9)

@@ -10,6 +10,8 @@ public partial class Bac : Node3D
 		var area = GetNode<Area3D>("Area3D");
 		area.BodyEntered += OnBodyEntered;
 		area.BodyExited += OnBodyExited;
+
+		AddToGroup("bac");
 	}
 
 	private void OnBodyEntered(Node body)
