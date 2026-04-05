@@ -18,6 +18,9 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_46yyp"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_egaok"]
+viewport_path = NodePath("Plane/Sprite3D/SubViewport")
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_46yyp"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_68onm"]
@@ -38,6 +41,9 @@ data = PackedVector3Array(0.0625, 0, 0, -0.0609, 0, -1, 0.0625, 0, -1, 0.25, 0, 
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yko1n"]
 data = PackedVector3Array(0.5, 0, 0, 1, 0, -1, 1, 0, 0, 0.5, 0, 0, 0.5, 0, -1, 1, 0, -1, 0.5, 0, 0.5, 0.5, 0, 0, 1, 0, 0, 0.5, 0, 0.5, 1, 0, 0, 1, 0, 0.5, 0.5, 0, 1, 0.5, 0, 0.5, 1, 0, 0.5, 0.5, 0, 1, 1, 0, 0.5, 1, 0, 1, 0.25, 0, 1, 0.5, 0, 0.5, 0.5, 0, 1, 0.25, 0, 1, 0.25, 0, 0.5, 0.5, 0, 0.5, 0.25, 0, 0.5, 0.5, 0, 0, 0.5, 0, 0.5, 0.125, 0, 1, 0.25, 0, 0.5, 0.25, 0, 1, 0.25, 0, 0, 0.5, 0, -1, 0.5, 0, 0, 0.25, 0, 0.5, 0.25, 0, 0, 0.5, 0, 0, 0.25, 0, 0, 0.25, 0, -1, 0.5, 0, -1, 0.125, 0, 1, 0.125, 0, 0.5, 0.25, 0, 0.5, 0.125, 0, 0.5, 0.25, 0, 0, 0.25, 0, 0.5, 0.0625, 0, 1, 0.125, 0, 0.5, 0.125, 0, 1, 0.0625, 0, 1, 0.0625, 0, 0.5, 0.125, 0, 0.5, 0.125, 0, 0.5, 0.125, 0, 0, 0.25, 0, 0, 0.125, 0, 0, 0.25, 0, -1, 0.25, 0, 0, 0.0625, 0, 0.5, 0.125, 0, 0, 0.125, 0, 0.5, 0.125, 0, 0, 0.125, 0, -1, 0.25, 0, -1, 0.0625, 0, 0.5, 0.0625, 0, 0, 0.125, 0, 0, 0.0625, 0, 0, 0.125, 0, -1, 0.125, 0, 0, 0.0625, 0, 0, 0.0625, 0, -1, 0.125, 0, -1, -0.0625, 0, 0.5, 0.0625, 0, 0, 0.0625, 0, 0.5, 0, 0, 0, 0.0625, 0, -1, 0.0625, 0, 0, 0.0625, 0, 0, -0.0625, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0.0625, 0, -1, -0.0625, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, -0.0625, 0, 0.5, -0.0625, 0, 0, -0.0625, 0, 0, -0.0625, 0, -1, 0, 0, -1, -0.125, 0, 0, -0.0625, 0, -1, -0.0625, 0, 0, -0.125, 0, 0, -0.125, 0, -1, -0.0625, 0, -1, -0.125, 0, 0.5, -0.0625, 0, 0, -0.0625, 0, 0.5, -0.125, 0, 0.5, -0.125, 0, 0, -0.0625, 0, 0, -0.125, 0, 1, -0.125, 0, 0.5, -0.0625, 0, 0.5, -0.125, 0, 1, -0.0625, 0, 0.5, -0.0625, 0, 1, -0.25, 0, 1, -0.125, 0, 0.5, -0.125, 0, 1, -0.25, 0, 1, -0.25, 0, 0.5, -0.125, 0, 0.5, -0.25, 0, 0.5, -0.125, 0, 0, -0.125, 0, 0.5, -0.5, 0, 1, -0.25, 0, 0.5, -0.25, 0, 1, -0.25, 0, 0, -0.125, 0, -1, -0.125, 0, 0, -0.25, 0, 0.5, -0.25, 0, 0, -0.125, 0, 0, -0.25, 0, 0, -0.25, 0, -1, -0.125, 0, -1, -0.5, 0, 1, -0.5, 0, 0.5, -0.25, 0, 0.5, -0.5, 0, 0.5, -0.25, 0, 0, -0.25, 0, 0.5, -1, 0, 1, -0.5, 0, 0.5, -0.5, 0, 1, -1, 0, 1, -1, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0, -0.25, 0, 0, -0.5, 0, 0, -0.25, 0, -1, -0.25, 0, 0, -1, 0, 0.5, -0.5, 0, 0, -0.5, 0, 0.5, -0.5, 0, 0, -0.5, 0, -1, -0.25, 0, -1, -1, 0, 0.5, -1, 0, 0, -0.5, 0, 0, -1, 0, 0, -0.5, 0, -1, -0.5, 0, 0, -1, 0, 0, -1, 0, -1, -0.5, 0, -1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_peflr"]
+viewport_path = NodePath("passerel/Cube_002/Sprite3D/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_peflr"]
 resource_name = "MetalGalvanizedSteelWorn001_2K"
@@ -96,6 +102,25 @@ physics_material_override = SubResource("PhysicsMaterial_q232k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0" unique_id=213515830]
 shape = SubResource("ConvexPolygonShape3D_46yyp")
 
+[node name="Sprite3D" type="Sprite3D" parent="Plane" index="1" unique_id=1609646662]
+transform = Transform3D(-2.185569e-09, 0.049999993, 4.371139e-09, 0, -2.185569e-09, 0.1, 0.049999993, 2.185569e-09, 1.9106854e-16, 0.4, 0.01, 0.75)
+texture = SubResource("ViewportTexture_egaok")
+
+[node name="SubViewport" type="SubViewport" parent="Plane/Sprite3D" index="0" unique_id=1213873124]
+transparent_bg = true
+size = Vector2i(300, 50)
+
+[node name="Label" type="Label" parent="Plane/Sprite3D/SubViewport" index="0" unique_id=1889918406]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+text = "C'est toujours parreille ..."
+horizontal_alignment = 1
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane_001" parent_id_path=PackedInt32Array(1053000665) index="0" unique_id=1096777461]
 physics_material_override = SubResource("PhysicsMaterial_46yyp")
 
@@ -136,6 +161,30 @@ cast_shadow = 0
 
 [node name="passerel" parent="." index="6" unique_id=2056789044 instance=ExtResource("4_w35vr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -42, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="passerel/Cube_002" parent_id_path=PackedInt32Array(2056789044, 2098583392) index="1" unique_id=95668921]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 0.002, -0.95, 1.01)
+texture = SubResource("ViewportTexture_peflr")
+
+[node name="SubViewport" type="SubViewport" parent="passerel/Cube_002/Sprite3D" index="0" unique_id=1312667091]
+transparent_bg = true
+size = Vector2i(300, 40)
+
+[node name="Label" type="Label" parent="passerel/Cube_002/Sprite3D/SubViewport" index="0" unique_id=1310747403]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -11.5
+offset_right = 92.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+text = "Je ne pense plus donc ..."
+horizontal_alignment = 1
 
 [node name="Canapé" parent="." index="7" unique_id=1467092099 instance=ExtResource("6_4yloq")]
 transform = Transform3D(-2.6226832e-07, 0, 6, 0, 6, 0, -6, 0, -2.6226832e-07, 20, 0, 47)
