@@ -5,7 +5,7 @@ public partial class Niveau1 : Node3D
 {
 	private CanvasLayer _pauseMenu;
 
-	public int currentDay = 1;
+	public int currentDay = 5;
 	private const int maxDays = 5;
 	private Node uiLevel;
 	private Label dayLabel;
@@ -60,7 +60,8 @@ public partial class Niveau1 : Node3D
 	{
 		if(currentDay >= maxDays) // évite de dépasser le nombre de jours disponibles
 		{
-			// AddToGroup("Victory");
+			GD.Print("Maximum number of days reached.");
+			GetNode<Node>("Door1").GetNode<Node>("DoorBoddy").AddToGroup("Victory");
 			return;
 		}
 

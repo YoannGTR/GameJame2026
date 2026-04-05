@@ -33,7 +33,7 @@ public partial class Bac : Node3D
 			}else if(niveau.currentDay < 5 && score >= 3)
 			{
 				niveau.ChangeDay();
-			}else if(niveau.currentDay == 5 && score >= 4)
+			}else if(niveau.currentDay == 5 && score >= 1)
 			{
 				niveau.ChangeDay();
 			}
