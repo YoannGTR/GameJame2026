@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cxj61tc1psew5" path="res://Scenes/salle_principale.tscn" id="4_l8iyw"]
 [ext_resource type="PackedScene" uid="uid://dyb52mnhs2u4b" path="res://Scenes/couloir_1.tscn" id="6_cgkdp"]
 [ext_resource type="Script" uid="uid://bsue67nu5mlrp" path="res://Scripts/PauseMenu.cs" id="6_h6w1h"]
-[ext_resource type="PackedScene" uid="uid://baqxgpxkynmrr" path="res://Scenes/objet_base.tscn" id="7_h6w1h"]
+[ext_resource type="PackedScene" path="res://Scenes/objet_base.tscn" id="7_h6w1h"]
 [ext_resource type="PackedScene" uid="uid://pgwnpy5kdn5c" path="res://Scenes/pierre_with_hitbox.tscn" id="8_6031c"]
 [ext_resource type="PackedScene" uid="uid://bu4jqkl4d7swh" path="res://Scenes/ui_papier.tscn" id="9_wgjhe"]
+[ext_resource type="PackedScene" uid="uid://b2p4rpfhhoc5g" path="res://Assets/Meuble/bois1.glb" id="10_sul83"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgkdp"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 0.2509804)
@@ -88,5 +89,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.752)
 
 [node name="ui_papier" parent="." unique_id=278746926 instance=ExtResource("9_wgjhe")]
 visible = false
+
+[node name="bois1" parent="." unique_id=605129331 instance=ExtResource("10_sul83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.692677, 3.9501684, -88.95226)
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="PauseMenu" method="OnResumePressed"]

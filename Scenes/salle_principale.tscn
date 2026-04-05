@@ -10,8 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bkyea3t8dj8ag" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_COL_2K_METALNESS.jpg" id="8_v22xa"]
 [ext_resource type="Texture2D" uid="uid://gcpirdeavbot" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_METALNESS_2K_METALNESS_jpg-MetalGalvanizedSteelWorn001_ROUGHNESS_2K_METALNESS_jpg.png" id="9_b47d6"]
 [ext_resource type="Texture2D" uid="uid://dfurrd31gagvp" path="res://Assets/Meuble/lampe_MetalGalvanizedSteelWorn001_NRM16_2K_METALNESS_tiff.png" id="10_egaok"]
-[ext_resource type="PackedScene" uid="uid://bm4ex4gy80enu" path="res://Assets/Meuble/plante1.glb" id="11_egaok"]
+[ext_resource type="PackedScene" uid="uid://bgvhyflmx4cxl" path="res://papier.tscn" id="12_egaok"]
 [ext_resource type="PackedScene" uid="uid://wd23wjgsaoqq" path="res://Assets/Meuble/plante2.glb" id="12_peflr"]
+[ext_resource type="PackedScene" uid="uid://c1arkhjkfg2dk" path="res://Assets/Meuble/petite_table.glb" id="13_peflr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q232k"]
 
@@ -91,6 +92,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_js7ul")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_js7ul"]
+viewport_path = NodePath("papier/Sprite3D2/SubViewport")
+
 [node name="salle_principale" unique_id=762880406 instance=ExtResource("1_q232k")]
 
 [node name="Plane" parent="." index="0" unique_id=1109323915]
@@ -117,7 +121,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+theme_override_colors/font_color = Color(0.11489672, 0.11489683, 0.11489678, 1)
 text = "C'est toujours parreille ..."
 horizontal_alignment = 1
 
@@ -226,11 +230,43 @@ shadow_enabled = true
 shadow_bias = 0.05
 spot_range = 80.0
 
-[node name="plante1" parent="." index="11" unique_id=975253134 instance=ExtResource("11_egaok")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4, 15.01, 48)
-
-[node name="plante2" parent="." index="12" unique_id=311861147 instance=ExtResource("12_peflr")]
+[node name="plante2" parent="." index="11" unique_id=311861147 instance=ExtResource("12_peflr")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 10)
+
+[node name="papier" parent="." index="12" unique_id=27807764 instance=ExtResource("12_egaok")]
+transform = Transform3D(1.5, 0, 0, 0, -5.4639237e-08, 1.5, 0, -1.25, -6.556708e-08, 6.815, 20.477, 49.9)
+
+[node name="Sprite3D2" type="Sprite3D" parent="papier" index="2" unique_id=1306497001]
+transform = Transform3D(-1, 1.5099582e-07, -3.3001183e-14, 0, -4.3711395e-08, -5, -1.5099582e-07, -1, 2.1855695e-07, -0.58564186, 0.00047683716, -0.08936882)
+texture = SubResource("ViewportTexture_js7ul")
+
+[node name="SubViewport" type="SubViewport" parent="papier/Sprite3D2" index="0" unique_id=440360871]
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="papier/Sprite3D2/SubViewport" index="0" unique_id=1896004159]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -25.0
+offset_right = 76.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="papier/Sprite3D2/SubViewport/HBoxContainer" index="0" unique_id=804847912]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "E"
+
+[node name="petite_table" parent="." index="13" unique_id=1299357201 instance=ExtResource("13_peflr")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 20.25, 0, 37.5)
 
 [editable path="bord_dome/dome"]
 [editable path="passerel"]
