@@ -101,7 +101,6 @@ public partial class Player : CharacterBody3D
 				isDoorPointed = true;
 				if(Input.IsActionJustPressed("interract") && (niveau.isGoalValidated(3) || heldObject.Name == "PickupObjectKey")) // allow to open the door if the goal 3 is validated or if the player is holding an object{
 					door.ToggleDoor();
-				}
 			}
 
 			if (heldObject == null && collider.IsInGroup("pickup"))
@@ -118,10 +117,9 @@ public partial class Player : CharacterBody3D
 				niveau.validateGoal(1);
 				niveau.launchGoal(2);
 			}
-		}else
-			{
-				camera.GetNode<Label>("Ramasser").Visible = false;
-			}
+		}else{
+			camera.GetNode<Label>("Ramasser").Visible = false;
+		}
 
 		// Masquer les sprites si on ne pointe plus la porte
 		if (!isDoorPointed && lastDoor != null)
