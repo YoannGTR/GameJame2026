@@ -99,6 +99,15 @@ public partial class Player : CharacterBody3D
 					door.ToggleDoor();
 				}
 			}
+
+			if (collider.IsInGroup("pickup"))
+			{
+				// show the "F" prompt
+				camera.GetNode<Label>("Ramasser").Visible = true;
+			}else
+			{
+				camera.GetNode<Label>("Ramasser").Visible = false;
+			}
 			
 		}
 
@@ -155,16 +164,13 @@ public partial class Player : CharacterBody3D
 		heldObject.Freeze = false;
 		heldObject.GlobalPosition = dropPosition + camera.GlobalTransform.Basis.Z * -4.0f + camera.GlobalTransform.Basis.Y * -0.0f; // drop a bit in front of the camera and bottom of the camera
 
-		//augmente la gravité pour que l'objet tombe plus rapidement
-		heldObject.GravityScale = 5.0f;
-
 
 		heldObject = null;
 	}
 	private void LaunchObject()
 	{
 		Vector3 launchDirection = -camera.GlobalTransform.Basis.Z.Normalized();
-		float launchForce = 20.0f;
+		float launchForce = 30.0f;
 
 		Vector3 launchOrigin = camera.GlobalPosition;
 		launchOrigin += launchDirection * 4.0f; // start a bit in front of the camera

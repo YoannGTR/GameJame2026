@@ -59,3 +59,18 @@ shadow_enabled = true
 shadow_bias = 0.05
 spot_range = 69.92344
 spot_angle = 31.837624
+
+[node name="Ramasser" type="Label" parent="Camera3D" index="4" unique_id=71392183]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -111.5
+offset_right = 38.0
+offset_bottom = -88.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ramasser"
