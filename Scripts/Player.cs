@@ -22,6 +22,8 @@ public partial class Player : CharacterBody3D
 	private RigidBody3D heldObject = null;
 	private DoorBoddy lastDoor = null;
 
+	private Niveau1 niveau;
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
@@ -70,6 +72,8 @@ public partial class Player : CharacterBody3D
 		ray = camera.GetNode<RayCast3D>("RayCast3D");
 		holdPoint = camera.GetNode<Node3D>("HoldPoint");
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+
+		niveau = GetTree().CurrentScene as Niveau1;
 	}
 
 	public override void _Process(double delta)
@@ -95,7 +99,7 @@ public partial class Player : CharacterBody3D
 				door.GetNode<Sprite3D>("Sprite3D2").Visible = true; // show the "E" prompt
 				lastDoor = door;
 				isDoorPointed = true;
-				if(Input.IsActionJustPressed("interract")){
+				if(Input.IsActionJustPressed("interract") && (niveau.isGoalValidated(3) || heldObject.Name == "PickupObjectKey")) // allow to open the door if the goal 3 is validated or if the player is holding an object{
 					door.ToggleDoor();
 				}
 			}
@@ -111,9 +115,8 @@ public partial class Player : CharacterBody3D
 
 			if(collider.GetParent().GetParent().IsInGroup("bac"))
 			{
-				Niveau1 niveau = GetTree().CurrentScene as Niveau1;
-				niveau.validateGoal("Où suis-je ?");
-				niveau.launchGoal("A quoi sert le bac ?");
+				niveau.validateGoal(1);
+				niveau.launchGoal(2);
 			}
 		}else
 			{
@@ -166,9 +169,7 @@ public partial class Player : CharacterBody3D
 				heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true; // désactive la collision de l'objet pour éviter les problèmes de physique
 
 
-				MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
-				cube.Visible = true; 
-				cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+				
 			}
 		}
 	}
@@ -184,11 +185,6 @@ public partial class Player : CharacterBody3D
 		heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // réactive la collision de l'objet
 
 		heldObject = null;
-
-
-		MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
-		cube.Visible = false; 
-		cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
 	}
 	private void LaunchObject()
 	{
@@ -210,9 +206,5 @@ public partial class Player : CharacterBody3D
 		heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // réactive la collision de l'objet
 		heldObject = null;
 
-
-		MeshInstance3D cube = GetParent().GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
-		cube.Visible = false; 
-		cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
 	}
 }

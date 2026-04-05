@@ -8,30 +8,21 @@ public partial class Niveau1 : Node3D
 	public int currentDay = 1;
 	private const int maxDays = 5;
 	private Node uiLevel;
+	private Label dayLabel;
+	private HBoxContainer goalDoneContainer;
 
-	//map des objectifs (string = nom de l'objectif, bool = si l'objectif est accompli ou pas)
-	private Godot.Collections.Dictionary goalsDone = new Godot.Collections.Dictionary()
-	{
-		{"Où suis-je ?", false},
-		{"A quoi sert le bac ?", false},
-		{"Qu'y a-t-il derrière la porte ?", false},
-		{"A quoi sert la clé ?", false},
-		{"Qu'y a-t-il à l'étage ?", false}
-	};
-	private Godot.Collections.Dictionary goalsOnDoing = new Godot.Collections.Dictionary()
-	{
-		{"Où suis-je ?", false},
-		{"A quoi sert le bac ?", false},
-		{"Qu'y a-t-il derrière la porte ?", false},
-		{"A quoi sert la clé ?", false},
-		{"Qu'y a-t-il à l'étage ?", false}
-	};
+	private int cpt = 0;
+
+
+
 
 	public override void _Ready()
 	{
 		_pauseMenu = GetNode<CanvasLayer>("PauseMenu");
 		_pauseMenu.Visible = false;
 		uiLevel = GetNode<Player>("Player").GetNode<Camera3D>("Camera3D").GetNode<VBoxContainer>("UI_level");
+		dayLabel = uiLevel.GetNode<Label>("Day") as Label;
+		goalDoneContainer = uiLevel.GetNode<HBoxContainer>("GoalDone") as HBoxContainer;
 	}
 
 	public override void _Input(InputEvent @event)
@@ -85,51 +76,78 @@ public partial class Niveau1 : Node3D
 		GetNode<Node>("plante").GetNode<RigidBody3D>("PickupObject"+currentDay).GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // active la collision du nouvel objet
 
 
-		uiLevel.GetNode<Label>("Day").Text = "Jour " + currentDay; // update the day label
+		dayLabel.Text = "Jour " + currentDay; // update the day label
 	}
 
-	public void validateGoal(string goal)
+	public void validateGoal(int goal)
 	{
-		switch (goal)
-		{
-			case "Où suis-je ?":
-				goalsDone["Où suis-je ?"] = true;
-				break;
-			case "A quoi sert le bac ?":
-				goalsDone["A quoi sert le bac ?"] = true;
-				break;
-			case "Qu'y a-t-il derrière la porte ?":
-				goalsDone["Qu'y a-t-il derrière la porte ?"] = true;
-				break;
-			case "A quoi sert la clé ?":
-				goalsDone["A quoi sert la clé ?"] = true;
-				break;
-			case "Qu'y a-t-il à l'étage ?":
-				goalsDone["Qu'y a-t-il à l'étage ?"] = true;
-				break;
+		HBoxContainer goalContainer = uiLevel.GetNode<HBoxContainer>("Goal"+goal);
+		if(goalContainer.Visible == true && goalContainer.GetNode<CheckBox>("CheckBox").IsPressed() == false){
+			// if(goal == 1 ){
+
+			// }
+
+			// check the checkbox
+			goalContainer.GetNode<CheckBox>("CheckBox").ButtonPressed = true;
+			goalContainer.Visible = false; // hide the goal container
+			goalDoneContainer.GetNode<Label>("Label").Text = goalContainer.GetNode<Label>("Label").Text;
+			goalDoneContainer.Visible = true;
+			cpt = 5 * 60; // show the goalDoneContainer for 5 seconds
+
+			//debloquage
+			switch (goal)
+			{
+				case 1:
+					GD.Print("Goal 1 validated!");
+					break;
+				case 2:
+					GD.Print("Goal 2 validated!");
+					MeshInstance3D cube = GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
+					cube.Visible = true; 
+					cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+					break;
+				case 3:
+					GD.Print("Goal 3 validated!");
+					break;
+				case 4:
+					GD.Print("Goal 4 validated!");
+					break;
+				case 5:
+					GD.Print("Goal 5 validated!");
+					break;
+				default:
+					GD.Print("Unknown goal validated: " + goal);
+					break;
+			}
+		}
+		
+	}
+
+	public void launchGoal(int goal)
+	{
+		HBoxContainer goalContainer = uiLevel.GetNode<HBoxContainer>("Goal"+goal);
+		if(goalContainer.Visible == false && goalContainer.GetNode<CheckBox>("CheckBox").IsPressed() == false){
+			goalContainer.Visible = true;
 		}
 	}
 
-	public void launchGoal(string goal)
+	public bool isGoalValidated(int goal)
 	{
-		switch (goal)
-		{
-			case "Où suis-je ?":
-				goalsOnDoing["Où suis-je ?"] = true;
-				break;
-			case "A quoi sert le bac ?":
-				goalsOnDoing["A quoi sert le bac ?"] = true;
-				break;
-			case "Qu'y a-t-il derrière la porte ?":
-				goalsOnDoing["Qu'y a-t-il derrière la porte ?"] = true;
-				break;
-			case "A quoi sert la clé ?":
-				goalsOnDoing["A quoi sert la clé ?"] = true;
-				break;
-			case "Qu'y a-t-il à l'étage ?":
-				goalsOnDoing["Qu'y a-t-il à l'étage ?"] = true;
-				break;
+		HBoxContainer goalContainer = uiLevel.GetNode<HBoxContainer>("Goal"+goal);
+		return goalContainer.GetNode<CheckBox>("CheckBox").IsPressed();
+	}
+
+	public override void _Process(double delta)
+	{
+		// hide goalDoneContainer after 5 seconds
+		if(cpt > 0){
+			cpt--;
+			if(cpt <= 0){
+				goalDoneContainer.Visible = false;
+				cpt = 0;
+			}
 		}
+		
 	}
 
 	

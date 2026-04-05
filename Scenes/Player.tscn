@@ -35,16 +35,119 @@ theme_override_font_sizes/font_size = 30
 text = "Jour 1"
 vertical_alignment = 1
 
-[node name="Goal" type="HBoxContainer" parent="Camera3D/UI_level" index="1" unique_id=122042939]
+[node name="Goal1" type="HBoxContainer" parent="Camera3D/UI_level" index="1" unique_id=122042939]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 7
 alignment = 2
 
-[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal" index="0" unique_id=314209733]
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal1" index="0" unique_id=314209733]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Camera3D/UI_level/Goal" index="1" unique_id=516712821]
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal1" index="1" unique_id=516712821]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "Où suis-je ?"
+vertical_alignment = 1
+
+[node name="Goal2" type="HBoxContainer" parent="Camera3D/UI_level" index="2" unique_id=161894050]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal2" index="0" unique_id=196965736]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal2" index="1" unique_id=1137106355]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "A quoi sert le bac ?"
+vertical_alignment = 1
+
+[node name="Goal3" type="HBoxContainer" parent="Camera3D/UI_level" index="3" unique_id=1365603136]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal3" index="0" unique_id=1924614129]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal3" index="1" unique_id=373102742]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "Qu'y a-t-il derrière la porte ?"
+vertical_alignment = 1
+
+[node name="Goal4" type="HBoxContainer" parent="Camera3D/UI_level" index="4" unique_id=384225073]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal4" index="0" unique_id=1663240356]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal4" index="1" unique_id=303463574]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "A quoi sert la clé ?"
+vertical_alignment = 1
+
+[node name="Goal5" type="HBoxContainer" parent="Camera3D/UI_level" index="5" unique_id=1575879652]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal5" index="0" unique_id=211188623]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal5" index="1" unique_id=1490851663]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "Qu'y a-t-il à l'étage ?"
+vertical_alignment = 1
+
+[node name="Goal6" type="HBoxContainer" parent="Camera3D/UI_level" index="6" unique_id=1454781973]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal6" index="0" unique_id=328693468]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal6" index="1" unique_id=1189522719]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "Ça va dans le bac ?"
+vertical_alignment = 1
+
+[node name="GoalDone" type="HBoxContainer" parent="Camera3D/UI_level" index="7" unique_id=506847726]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/GoalDone" index="0" unique_id=254072444]
+layout_mode = 2
+button_pressed = true
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/GoalDone" index="1" unique_id=2110114144]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)

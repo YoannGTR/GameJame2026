@@ -21,6 +21,9 @@ public partial class Bac : Node3D
 		{
 			score++;
 			GD.Print("Score: " + score);
+			Niveau1 niveau = GetTree().CurrentScene as Niveau1;
+			niveau.validateGoal(2);
+			niveau.launchGoal(5);
 
 			// body.QueueFree(); // supprime l'objet (optionnel)
 		}
