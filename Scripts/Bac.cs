@@ -27,7 +27,13 @@ public partial class Bac : Node3D
 			niveau.launchGoal(5);
 
 			// body.QueueFree(); // supprime l'objet (optionnel)
-			if(niveau.currentDay < 3 && score >= 3)
+			if(niveau.currentDay < 3 && score >= 2)
+			{
+				niveau.ChangeDay();
+			}else if(niveau.currentDay < 5 && score >= 3)
+			{
+				niveau.ChangeDay();
+			}else if(niveau.currentDay == 5 && score >= 4)
 			{
 				niveau.ChangeDay();
 			}

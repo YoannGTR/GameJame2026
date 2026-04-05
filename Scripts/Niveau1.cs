@@ -60,7 +60,41 @@ public partial class Niveau1 : Node3D
 	{
 		if(currentDay >= maxDays) // évite de dépasser le nombre de jours disponibles
 		{
+			// AddToGroup("Victory");
 			return;
+		}
+
+		switch (currentDay)
+		{
+			case 1:{
+
+				MeshInstance3D cube = GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
+				cube.Visible = true; 
+				cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+				break;
+			}
+			case 2:{
+
+				MeshInstance3D cube = GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube_003");
+				cube.Visible = true; 
+				cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+				break;
+			}
+			case 3:{
+				MeshInstance3D cube = GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube_001");
+				cube.Visible = true; 
+				cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+				break;
+			}
+			case 4:{
+				MeshInstance3D cube = GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube_002");
+				cube.Visible = true; 
+				cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+				break;
+			}
+			default:
+				GD.Print("Unknown day: " + currentDay);
+				break;
 		}
 
 		//gestion des plantes
@@ -82,15 +116,36 @@ public partial class Niveau1 : Node3D
 
 		}
 
-		//reset la position des objets à ramasser
-		GetNode<Node3D>("pierre").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(-46f, 15.2f, -27f);
-		GetNode<Node3D>("balle").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(-27f, 0.1f, -3f);
-		GetNode<Node3D>("plante").GetNode<RigidBody3D>("PickupObject" + currentDay).GlobalPosition = new Vector3(20.5f, 3.1f, 37.5f);
-		GetNode<Node3D>("bois").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(18f, 4.1f, -89f);
-		
-		if(currentDay == 3){
-			GetNode<Node3D>("key").Visible = false;
+		//reset les portes
+		if(GetNode<Node3D>("Door1").GetNode<DoorBoddy>("DoorBoddy").IsOpen()){
+			GetNode<Node3D>("Door1").GetNode<DoorBoddy>("DoorBoddy").ToggleDoor();
 		}
+		if(GetNode<Node3D>("Door2").GetNode<DoorBoddy>("DoorBoddy").IsOpen()){
+			GetNode<Node3D>("Door2").GetNode<DoorBoddy>("DoorBoddy").ToggleDoor();
+		}
+
+		//reset la position des objets à ramasser et leur vitesse
+		GetNode<Node3D>("pierre").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(-46f, 15.2f, -27f);
+		GetNode<Node3D>("pierre").GetNode<RigidBody3D>("PickupObject").LinearVelocity = Vector3.Zero;
+		GetNode<Node3D>("pierre").GetNode<RigidBody3D>("PickupObject").AngularVelocity = Vector3.Zero;
+
+		GetNode<Node3D>("balle").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(-27f, 0.1f, -3f);
+		GetNode<Node3D>("balle").GetNode<RigidBody3D>("PickupObject").LinearVelocity = Vector3.Zero;
+		GetNode<Node3D>("balle").GetNode<RigidBody3D>("PickupObject").AngularVelocity = Vector3.Zero;
+
+		GetNode<Node3D>("plante").GetNode<RigidBody3D>("PickupObject" + currentDay).GlobalPosition = new Vector3(20.5f, 3.1f, 37.5f);
+		GetNode<Node3D>("plante").GetNode<RigidBody3D>("PickupObject" + currentDay).LinearVelocity = Vector3.Zero;
+		GetNode<Node3D>("plante").GetNode<RigidBody3D>("PickupObject" + currentDay).AngularVelocity = Vector3.Zero;
+
+		GetNode<Node3D>("bois").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(18f, 4.1f, -89f);
+		GetNode<Node3D>("bois").GetNode<RigidBody3D>("PickupObject").LinearVelocity = Vector3.Zero;
+		GetNode<Node3D>("bois").GetNode<RigidBody3D>("PickupObject").AngularVelocity = Vector3.Zero;
+
+		if(currentDay == 3){
+			GetNode<Node3D>("key").Visible = true;
+			launchGoal(7);
+		}
+		
 
 		dayLabel.Text = "Jour " + currentDay; // update the day label
 	}
@@ -118,9 +173,7 @@ public partial class Niveau1 : Node3D
 					break;
 				case 2:
 					GD.Print("Goal 2 validated!");
-					MeshInstance3D cube = GetNode<Node>("salle_principale").GetNode<Node>("passerel").GetNode<MeshInstance3D>("Cube");
-					cube.Visible = true; 
-					cube.GetNode<StaticBody3D>("StaticBody3D").GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+					
 					break;
 				case 3:
 					GD.Print("Goal 3 validated!");

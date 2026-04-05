@@ -116,6 +116,7 @@ public partial class Player : CharacterBody3D
 				if(Input.IsActionJustPressed("interract")) {
 					if(haveKey && door.GetParent().Name == "Door2"){
 						door.ToggleDoor();
+						niveau.validateGoal(4);
 					}else if(door.GetParent().Name == "Door2"){
 						niveau.launchGoal(3);
 						camera.GetNode<Label>("Verouillé").Visible = true; 
@@ -204,6 +205,8 @@ public partial class Player : CharacterBody3D
 					haveKey = true;
 					collider.QueueFree(); 
 					camera.GetNode<TextureRect>("keyIcon").Visible = true; // show the key icon on the UI
+					niveau.validateGoal(7);
+					niveau.launchGoal(4);
 					return;
 				}
 

@@ -13,6 +13,11 @@ public partial class DoorBoddy : MeshInstance3D
 		RotationDegrees = new Vector3(0, angle, 0);
 	}
 
+	public bool IsOpen()
+	{
+		return isOpen;
+	}
+
 	public override void _Ready()
 	{
 		AddToGroup("door");

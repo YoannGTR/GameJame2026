@@ -137,7 +137,24 @@ theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
 text = "Ça va dans le bac ?"
 vertical_alignment = 1
 
-[node name="GoalDone" type="HBoxContainer" parent="Camera3D/UI_level" index="7" unique_id=506847726]
+[node name="Goal7" type="HBoxContainer" parent="Camera3D/UI_level" index="7" unique_id=745241122]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 7
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="Camera3D/UI_level/Goal7" index="0" unique_id=980188290]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/UI_level/Goal7" index="1" unique_id=1760144805]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+text = "Je peux ouvrir une	 porte maintenant?"
+vertical_alignment = 1
+
+[node name="GoalDone" type="HBoxContainer" parent="Camera3D/UI_level" index="8" unique_id=506847726]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
