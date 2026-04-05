@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsaritdl5vohd" path="res://Assets/Couloir1/couloir1_Poliigon_ConcreteWallCladding_7856_Metallic_2K_jpg-Poliigon_ConcreteWallCladding_7856_Roughness_2K_jpg.png" id="3_iv0wl"]
 [ext_resource type="Texture2D" uid="uid://b5uvh8ygqllrp" path="res://Assets/Couloir1/couloir1_Poliigon_ConcreteWallCladding_7856_Normal.png" id="4_fuoo4"]
 [ext_resource type="Script" uid="uid://ch5na44mfqbpd" path="res://Scripts/PowerBox01Box.cs" id="4_i84x6"]
+[ext_resource type="Script" uid="uid://ihyu2thg1qc1" path="res://Scripts/Plane024.cs" id="6_ouqny"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rdnjf"]
 data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -138,6 +139,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ouqny")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i84x6"]
+size = Vector3(1.909275, 1, 1.8648529)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkfed"]
 resource_name = "Poliigon_ConcreteWallCladding_7856_2K.006"
@@ -411,11 +415,18 @@ shape = SubResource("ConcavePolygonShape3D_44f33")
 [node name="Plane_024" type="MeshInstance3D" parent="." index="24" unique_id=1281512345]
 transform = Transform3D(0, 0, 5, 0, 1, 0, -5, 0, 0, 23, -80, -12)
 mesh = SubResource("ArrayMesh_eynvt")
+script = ExtResource("6_ouqny")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane_024" index="0" unique_id=628751973]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_024/StaticBody3D" index="0" unique_id=949111729]
 shape = SubResource("ConcavePolygonShape3D_iv0wl")
+
+[node name="Area3D" type="Area3D" parent="Plane_024" index="1" unique_id=1980248029]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane_024/Area3D" index="0" unique_id=341941900]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0.012548447, 0.48379517, 0.0076675415)
+shape = SubResource("BoxShape3D_i84x6")
 
 [node name="Plane_025" type="MeshInstance3D" parent="." index="25" unique_id=1863675579]
 transform = Transform3D(-2.1855695e-07, 1, -2.1855694e-06, 0, -4.371139e-08, -50, -5, -4.371139e-08, 9.553427e-14, 28, -30, -12)
