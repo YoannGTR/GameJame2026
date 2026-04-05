@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3lgm3tnyhvto"]
+
+[ext_resource type="Script" uid="uid://bvr8kt1d50xmp" path="res://Scripts/LoadingScreen.cs" id="1_kddo8"]
+[ext_resource type="VideoStream" uid="uid://xjrvwo0s4ukh" path="res://Assets/Vidéo/Chargement2.ogv" id="2_xoop3"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1824843598]
+script = ExtResource("1_kddo8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=598757793]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+stream = ExtResource("2_xoop3")
+autoplay = true
+expand = true

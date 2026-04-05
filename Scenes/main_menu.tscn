@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0b0f7flfspvo"]
 
 [ext_resource type="VideoStream" uid="uid://cjoqp78effkk5" path="res://Assets/Vidéo/fond_menu.ogv" id="1_28flt"]
+[ext_resource type="Script" uid="uid://cltbggeyeh2ij" path="res://Scenes/Button.cs" id="2_48xlc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(1, 1, 1, 1)
@@ -92,20 +93,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 text = "Start Game"
-
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=170176670]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-text = "Options"
+script = ExtResource("2_48xlc")
 
 [node name="Button3" type="Button" parent="VBoxContainer" unique_id=1310181682]
 layout_mode = 2
@@ -119,4 +107,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-text = "Exit"
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer/Button" method="_on_button_3_pressed"]

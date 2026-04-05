@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://baqxgpxkynmrr" path="res://Scenes/objet_base.tscn" id="7_h6w1h"]
 [ext_resource type="PackedScene" uid="uid://pgwnpy5kdn5c" path="res://Scenes/pierre_with_hitbox.tscn" id="8_6031c"]
 [ext_resource type="PackedScene" uid="uid://bu4jqkl4d7swh" path="res://Scenes/ui_papier.tscn" id="9_wgjhe"]
-[ext_resource type="PackedScene" uid="uid://kwloat0cdjhu" path="res://Scenes/plante_with_hitbox.tscn" id="10_sul83"]
-[ext_resource type="PackedScene" uid="uid://rtusfj8x42ey" path="res://Scenes/bois_with_hitbox.tscn" id="12_3xrf5"]
+[ext_resource type="PackedScene" path="res://Scenes/plante_with_hitbox.tscn" id="10_sul83"]
+[ext_resource type="PackedScene" path="res://Scenes/bois_with_hitbox.tscn" id="12_3xrf5"]
 [ext_resource type="VideoStream" uid="uid://c372evmcg8t03" path="res://Assets/Vidéo/Crédit.ogv" id="12_e8uax"]
 [ext_resource type="PackedScene" uid="uid://bgg82chwlqry" path="res://Assets/Meuble/drawer_cabinet_4k.glb" id="13_2nsxt"]
 [ext_resource type="PackedScene" uid="uid://byixt22gli0mi" path="res://Scenes/key_with_hitbox.tscn" id="14_wus1d"]
@@ -96,15 +96,16 @@ text = "Quit"
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 0, 0, -57.500725)
 
 [node name="balle" parent="." unique_id=928773727 instance=ExtResource("7_h6w1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.125305, 0, 0)
 
 [node name="pierre" parent="." unique_id=511191946 instance=ExtResource("8_6031c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.752)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.859573, 0, 4.752)
 
 [node name="ui_papier" parent="." unique_id=278746926 instance=ExtResource("9_wgjhe")]
 visible = false
 
 [node name="plante" parent="." unique_id=2145585569 instance=ExtResource("10_sul83")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 5, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 35.324554, 0, 0)
 
 [node name="bois" parent="." unique_id=277865770 instance=ExtResource("12_3xrf5")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 18.693, 3.95, -88.952)
@@ -225,7 +226,7 @@ text = "Retour au menu du jeu"
 [node name="drawer_cabinet_4k" parent="." unique_id=1594061312 instance=ExtResource("13_2nsxt")]
 transform = Transform3D(-5, 0, -4.371139e-07, 0, 5, 0, 4.371139e-07, 0, -5, 31.824722, 0, 48.613155)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="drawer_cabinet_4k/drawer_cabinet" parent_id_path=PackedInt32Array(1594061312, 337886582) index="0" unique_id=299738846]
+[node name="StaticBody3D" type="StaticBody3D" parent="drawer_cabinet_4k/drawer_cabinet" parent_id_path=PackedInt32Array(1594061312, 1767193565) index="0" unique_id=299738846]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="drawer_cabinet_4k/drawer_cabinet/StaticBody3D" unique_id=298396831]
 shape = SubResource("ConcavePolygonShape3D_2nsxt")
@@ -264,6 +265,7 @@ theme_override_font_sizes/font_size = 30
 text = "E"
 
 [connection signal="pressed" from="PauseMenu/Control/VBoxContainer/ResumeButton" to="PauseMenu" method="OnResumePressed"]
+[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
 
 [editable path="Player"]
 [editable path="drawer_cabinet_4k"]

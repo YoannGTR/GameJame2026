@@ -138,7 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.11489672, 0.11489683, 0.11489678, 1)
-text = "C'est toujours parreille ..."
+text = "C'est toujours pareil ..."
 horizontal_alignment = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane_001" parent_id_path=PackedInt32Array(1053000665) index="0" unique_id=1096777461]

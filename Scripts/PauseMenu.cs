@@ -10,4 +10,8 @@ public partial class PauseMenu : CanvasLayer
 
 		Input.MouseMode = Input.MouseModeEnum.Captured; // 🔒 remet la souris en jeu
 	}
+	public void _on_quit_button_pressed()
+	{
+		GetTree().Quit();
+	}
 }
