@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byixt22gli0mi"]
+
+[ext_resource type="PackedScene" uid="uid://8xl67kmgcvrf" path="res://Assets/Object/SimpleKeyAndLock.glb" id="1_5rl7x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gws11"]
+size = Vector3(2.8394775, 0.34136963, 1)
+
+[node name="Node3D" type="Node3D" unique_id=743762494]
+
+[node name="PickupObject" type="RigidBody3D" parent="." unique_id=1410321985]
+
+[node name="SimpleKeyAndLock" parent="PickupObject" unique_id=1492474192 instance=ExtResource("1_5rl7x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6133194, 0, -2.0599923)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupObject" unique_id=713293797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014639139, 0.08056903, -0.013635397)
+shape = SubResource("BoxShape3D_gws11")
