@@ -173,7 +173,7 @@ public partial class Player : CharacterBody3D
 		String nameOfNode = heldObject.GetChildren()[0].Name;
 		heldObject.Reparent(GetTree().CurrentScene.GetNode<Node>(nameOfNode));
 		heldObject.Freeze = false;
-		heldObject.GlobalPosition = dropPosition + camera.GlobalTransform.Basis.Z * -4.0f + camera.GlobalTransform.Basis.Y * -0.0f; // drop a bit in front of the camera and bottom of the camera
+		heldObject.GlobalPosition = dropPosition + camera.GlobalTransform.Basis.Z * -4.0f; // drop a bit in front of the camera
 		
 		heldObject.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // réactive la collision de l'objet
 

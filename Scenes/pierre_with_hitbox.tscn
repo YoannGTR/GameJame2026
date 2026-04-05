@@ -14,7 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41637856, 0)
 physics_material_override = SubResource("PhysicsMaterial_okmmc")
 script = ExtResource("1_okmmc")
 
-[node name="pierre1" parent="PickupObject" unique_id=420927289 instance=ExtResource("1_8djea")]
+[node name="pierre" parent="PickupObject" unique_id=420927289 instance=ExtResource("1_8djea")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupObject" unique_id=1111040408]
