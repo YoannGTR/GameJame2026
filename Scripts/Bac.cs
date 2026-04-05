@@ -9,17 +9,29 @@ public partial class Bac : Node3D
 	{
 		var area = GetNode<Area3D>("Area3D");
 		area.BodyEntered += OnBodyEntered;
+		area.BodyExited += OnBodyExited;
 	}
 
 	private void OnBodyEntered(Node body)
 	{
 		GD.Print("Body entered bin: " + body.Name);
-		if (body.IsInGroup("pickup"))
+		if (body.IsInGroup("toMoveOnBac"))
 		{
 			score++;
 			GD.Print("Score: " + score);
 
-			body.QueueFree(); // supprime l'objet (optionnel)
+			// body.QueueFree(); // supprime l'objet (optionnel)
+		}
+	}
+
+	private void OnBodyExited(Node body)
+	{
+		GD.Print("Body exited bin: " + body.Name);
+		if (body.IsInGroup("toMoveOnBac"))
+		{
+			score--;
+			GD.Print("Score: " + score);
+
 		}
 	}
 }

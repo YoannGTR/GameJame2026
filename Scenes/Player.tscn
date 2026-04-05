@@ -13,7 +13,8 @@ transform = Transform3D(3.5, 0, 0, 0, 4, 0, 0, 0, 3.5, 0, 1.25, 0)
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 1, 0)
 
 [node name="Camera3D" parent="." index="2" unique_id=362689508]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 4.48, 0)
+transform = Transform3D(0.99987507, 0.0017451129, -0.015707318, -0.0017453283, 0.99999845, 0, 0.015707294, 2.7414426e-05, 0.9998766, 0, 4.195, -0.8)
+near = 0.37
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D" index="0" unique_id=350247832]
 anchors_preset = 1

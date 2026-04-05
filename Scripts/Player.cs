@@ -20,6 +20,7 @@ public partial class Player : CharacterBody3D
 	private RayCast3D ray;
 	private Node3D holdPoint;
 	private RigidBody3D heldObject = null;
+	private DoorBoddy lastDoor = null;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -81,17 +82,34 @@ public partial class Player : CharacterBody3D
 		camera.RotationDegrees = new Vector3(cameraPitch, 0, 0);
 
 		mouseDelta = Vector2.Zero;
+	
+		bool isDoorPointed = false;
 
 		if (ray.IsColliding())
 		{
 			Node collider = ray.GetCollider() as Node;
-			if (collider.GetParent().IsInGroup("door") && Input.IsActionJustPressed("interract"))
+			if (collider.GetParent().IsInGroup("door") )
 			{
 				DoorBoddy door = collider.GetParent<DoorBoddy>();
-				door.ToggleDoor();
+				door.GetNode<Sprite3D>("Sprite3D").Visible = true; // show the "E" prompt
+				door.GetNode<Sprite3D>("Sprite3D2").Visible = true; // show the "E" prompt
+				lastDoor = door;
+				isDoorPointed = true;
+				if(Input.IsActionJustPressed("interract")){
+					door.ToggleDoor();
+				}
 			}
 			
 		}
+
+		// Masquer les sprites si on ne pointe plus la porte
+		if (!isDoorPointed && lastDoor != null)
+		{
+			lastDoor.GetNode<Sprite3D>("Sprite3D").Visible = false;
+			lastDoor.GetNode<Sprite3D>("Sprite3D2").Visible = false;
+			lastDoor = null;
+		}
+
 		if (Input.IsActionJustPressed("grab"))
 		{
 			if (heldObject == null)
@@ -131,8 +149,15 @@ public partial class Player : CharacterBody3D
 	}
 	private void DropObject()
 	{
+		Vector3 dropPosition = camera.GlobalPosition;
+
 		heldObject.Reparent(GetTree().CurrentScene);
 		heldObject.Freeze = false;
+		heldObject.GlobalPosition = dropPosition + camera.GlobalTransform.Basis.Z * -4.0f + camera.GlobalTransform.Basis.Y * -0.0f; // drop a bit in front of the camera and bottom of the camera
+
+		//augmente la gravité pour que l'objet tombe plus rapidement
+		heldObject.GravityScale = 5.0f;
+
 
 		heldObject = null;
 	}
