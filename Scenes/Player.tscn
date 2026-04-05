@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cg0cwsr71njus" path="res://Assets/character_body_3d.tscn" id="1_iwpo4"]
 [ext_resource type="Script" uid="uid://cjhsf4qlgwghk" path="res://Scripts/Player.cs" id="2_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://6hp8swg6ru55" path="res://Assets/cle.png" id="3_gntrk"]
 
 [node name="Player" unique_id=2140359130 instance=ExtResource("1_iwpo4")]
 script = ExtResource("2_kyqiw")
@@ -182,3 +183,37 @@ offset_bottom = -88.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Ramasser"
+
+[node name="Verouillé" type="Label" parent="Camera3D" index="5" unique_id=1081739236]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -211.5
+offset_right = 38.0
+offset_bottom = -188.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Porte verouillée"
+
+[node name="keyIcon" type="TextureRect" parent="Camera3D" index="6" unique_id=1031072833]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 442.0
+offset_bottom = 442.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("3_gntrk")

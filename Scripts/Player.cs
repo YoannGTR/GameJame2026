@@ -19,10 +19,14 @@ public partial class Player : CharacterBody3D
 	private Camera3D camera;
 	private RayCast3D ray;
 	private Node3D holdPoint;
-	private RigidBody3D heldObject = null;
+	public RigidBody3D heldObject = null;
 	private DoorBoddy lastDoor = null;
 
 	private Niveau1 niveau;
+
+	private bool haveKey = false;
+
+	private int cpt = 0;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -78,6 +82,15 @@ public partial class Player : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
+		if(cpt > 0)
+		{
+			cpt--;
+			if(cpt <= 0)
+			{
+				camera.GetNode<Label>("Verouillé").Visible = false; // hide the "Door Locked" message after the timer ends
+			}
+		}
+
 		if (GetTree().Paused)
 		return;
 		RotationDegrees = new Vector3(0, RotationDegrees.Y - mouseDelta.X * MouseSensitivity, 0);
@@ -95,17 +108,28 @@ public partial class Player : CharacterBody3D
 			if (collider.GetParent().IsInGroup("door") )
 			{
 				DoorBoddy door = collider.GetParent<DoorBoddy>();
-				door.GetNode<Sprite3D>("Sprite3D").Visible = true; // show the "E" prompt
-				door.GetNode<Sprite3D>("Sprite3D2").Visible = true; // show the "E" prompt
+				door.GetNode<Sprite3D>("Sprite3D").Visible = true; 
+				door.GetNode<Sprite3D>("Sprite3D2").Visible = true; 
 				lastDoor = door;
 				isDoorPointed = true;
-				if(Input.IsActionJustPressed("interract") && (niveau.isGoalValidated(3) || heldObject.Name == "PickupObjectKey")) // allow to open the door if the goal 3 is validated or if the player is holding an object{
-					door.ToggleDoor();
+
+				if(Input.IsActionJustPressed("interract")) {
+					if(haveKey && door.GetParent().Name == "Door2"){
+						door.ToggleDoor();
+					}else if(door.GetParent().Name == "Door2"){
+						niveau.launchGoal(3);
+						camera.GetNode<Label>("Verouillé").Visible = true; 
+						cpt = 1 * 60; 
+					}else{
+						camera.GetNode<Label>("Verouillé").Visible = true; 
+						cpt = 1 * 60; 
+					}
+				}
 			}
 
 			if (heldObject == null && collider.IsInGroup("pickup"))
 			{
-				// show the "F" prompt
+				
 				camera.GetNode<Label>("Ramasser").Visible = true;
 			}else
 			{
@@ -158,6 +182,13 @@ public partial class Player : CharacterBody3D
 
 			if (collider.IsInGroup("pickup"))
 			{
+				if(collider.Name == "keyCollider" || collider.Name == "PickupObjectKey"){
+					haveKey = true;
+					collider.QueueFree(); 
+					camera.GetNode<TextureRect>("keyIcon").Visible = true; // show the key icon on the UI
+					return;
+				}
+
 				heldObject = collider as RigidBody3D;
 
 				heldObject.Freeze = true; // stop physique
@@ -171,7 +202,7 @@ public partial class Player : CharacterBody3D
 			}
 		}
 	}
-	private void DropObject()
+	public void DropObject()
 	{
 		Vector3 dropPosition = camera.GlobalPosition;
 
@@ -184,7 +215,7 @@ public partial class Player : CharacterBody3D
 
 		heldObject = null;
 	}
-	private void LaunchObject()
+	public void LaunchObject()
 	{
 		Vector3 launchDirection = -camera.GlobalTransform.Basis.Z.Normalized();
 		float launchForce = 30.0f;

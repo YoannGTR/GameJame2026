@@ -46,35 +46,49 @@ public partial class Niveau1 : Node3D
 
 		if (isPaused)
 		{
-			Input.MouseMode = Input.MouseModeEnum.Visible; // 🔓 libère la souris
+			Input.MouseMode = Input.MouseModeEnum.Visible;
 		}
 		else
 		{
-			Input.MouseMode = Input.MouseModeEnum.Captured; // 🔒 reprend contrôle FPS
+			Input.MouseMode = Input.MouseModeEnum.Captured; 
 		}
 	}
 
-	private void ChangeDay()
+	public void ChangeDay()
 	{
 		if(currentDay >= maxDays) // évite de dépasser le nombre de jours disponibles
 		{
 			return;
 		}
 
-		GD.Print("Changing to day " + (currentDay + 1));
-		GD.Print(GetNode<Node>("plante").Name);
-		//parcours les enfants de "plante" et affiche leurs noms
-		foreach (Node child in GetNode<Node>("plante").GetChildren())
-		{
-			GD.Print("Child: " + child.Name);
-		}
-
+		//gestion des plantes
 		GetNode<Node>("plante").GetNode<RigidBody3D>("PickupObject"+currentDay).Visible = false;
 		GetNode<Node>("plante").GetNode<RigidBody3D>("PickupObject"+currentDay).GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true; // désactive la collision de l'objet actuel
 		currentDay++;
 		GetNode<Node>("plante").GetNode<RigidBody3D>("PickupObject"+currentDay).Visible = true; 
 		GetNode<Node>("plante").GetNode<RigidBody3D>("PickupObject"+currentDay).GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false; // active la collision du nouvel objet
 
+
+		//reset de la position du joueur
+		GetNode<Player>("Player").GlobalPosition = new Vector3(0, 0, 0);
+
+
+		//libere l'objet tenu
+		Player player = GetNode<Player>("Player");
+		if(player.heldObject != null){
+			player.DropObject();
+
+		}
+
+		//reset la position des objets à ramasser
+		GetNode<Node3D>("pierre").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(-46f, 15.2f, -27f);
+		GetNode<Node3D>("balle").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(-27f, 0.1f, -3f);
+		GetNode<Node3D>("plante").GetNode<RigidBody3D>("PickupObject" + currentDay).GlobalPosition = new Vector3(20.5f, 3.1f, 37.5f);
+		GetNode<Node3D>("bois").GetNode<RigidBody3D>("PickupObject").GlobalPosition = new Vector3(18f, 4.1f, -89f);
+		
+		if(currentDay == 3){
+			GetNode<Node3D>("key").Visible = false;
+		}
 
 		dayLabel.Text = "Jour " + currentDay; // update the day label
 	}

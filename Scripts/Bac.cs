@@ -4,6 +4,7 @@ using System;
 public partial class Bac : Node3D
 {
 	private int score = 0;
+	private Niveau1 niveau;
 
 	public override void _Ready()
 	{
@@ -26,6 +27,10 @@ public partial class Bac : Node3D
 			niveau.launchGoal(5);
 
 			// body.QueueFree(); // supprime l'objet (optionnel)
+			if(niveau.currentDay < 3 && score >= 3)
+			{
+				niveau.ChangeDay();
+			}
 		}
 	}
 
