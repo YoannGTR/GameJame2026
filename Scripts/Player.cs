@@ -126,6 +126,24 @@ public partial class Player : CharacterBody3D
 					}
 				}
 			}
+			if (collider.GetParent().IsInGroup("death"))
+			{
+				if (Input.IsActionJustPressed("interract"))
+				{
+					GetNode<CanvasLayer>("/root/niveau_1/Defaite").Visible = true;
+					Input.MouseMode = Input.MouseModeEnum.Visible;
+					GetTree().Paused = true;
+				}
+			}
+			if (collider.GetParent().IsInGroup("victory"))
+			{
+				if (Input.IsActionJustPressed("interract"))
+				{
+					GetNode<CanvasLayer>("/root/niveau_1/Victoire").Visible = true;
+					Input.MouseMode = Input.MouseModeEnum.Visible;
+					GetTree().Paused = true;
+				}
+			}
 
 			if (heldObject == null && collider.IsInGroup("pickup"))
 			{

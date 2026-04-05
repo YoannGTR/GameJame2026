@@ -290,8 +290,17 @@ shape = SubResource("ConcavePolygonShape3D_egaok")
 libraries/ = SubResource("AnimationLibrary_js7ul")
 autoplay = &"light"
 
+[node name="petite_table2" parent="." index="14" unique_id=1267721506 instance=ExtResource("13_peflr")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -45.75525, 15.031073, -45.047447)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="petite_table2/CoffeeTableNimbusGoldReplica001_2K_Empty/CoffeeTableNimbusGoldReplica001_001" parent_id_path=PackedInt32Array(1267721506, 104214243) index="0" unique_id=409050782]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="petite_table2/CoffeeTableNimbusGoldReplica001_2K_Empty/CoffeeTableNimbusGoldReplica001_001/StaticBody3D" index="0" unique_id=1041424907]
+shape = SubResource("ConcavePolygonShape3D_egaok")
+
 [editable path="bord_dome/dome"]
 [editable path="passerel"]
 [editable path="lampe"]
 [editable path="lampe2"]
 [editable path="petite_table"]
+[editable path="petite_table2"]

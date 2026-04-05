@@ -12,7 +12,7 @@ public partial class Niveau1 : Node3D
 	private HBoxContainer goalDoneContainer;
 
 	private int cpt = 0;
-
+	private AudioStreamPlayer _music;
 
 
 
@@ -23,6 +23,8 @@ public partial class Niveau1 : Node3D
 		uiLevel = GetNode<Player>("Player").GetNode<Camera3D>("Camera3D").GetNode<VBoxContainer>("UI_level");
 		dayLabel = uiLevel.GetNode<Label>("Day") as Label;
 		goalDoneContainer = uiLevel.GetNode<HBoxContainer>("GoalDone") as HBoxContainer;
+		_music = GetNode<AudioStreamPlayer>("MusicPlayer");
+		_music.Play();
 	}
 
 	public override void _Input(InputEvent @event)

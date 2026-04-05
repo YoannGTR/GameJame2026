@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3lgm3tnyhvto"]
 
 [ext_resource type="Script" uid="uid://bvr8kt1d50xmp" path="res://Scripts/LoadingScreen.cs" id="1_kddo8"]
-[ext_resource type="VideoStream" uid="uid://xjrvwo0s4ukh" path="res://Assets/Vidéo/Chargement2.ogv" id="2_xoop3"]
+[ext_resource type="VideoStream" uid="uid://b7umnhoimqt38" path="res://Assets/Vidéo/Chargement3.ogv" id="2_xoop3"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1824843598]
 script = ExtResource("1_kddo8")
