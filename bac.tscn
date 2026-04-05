@@ -11,7 +11,7 @@ data = PackedVector3Array(-0.875, 1, 0.875, -1, 1, 1, -1, 1, 0.875, -0.875, 1, 0
 [node name="bac" unique_id=1143604065 instance=ExtResource("1_hpvuu")]
 script = ExtResource("2_vc006")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1701258053) index="0" unique_id=1202080484]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1490466821) index="0" unique_id=1202080484]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1464394568]
 shape = SubResource("ConcavePolygonShape3D_hpvuu")

@@ -78,6 +78,10 @@ public partial class Player : CharacterBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 
 		niveau = GetTree().CurrentScene as Niveau1;
+		
+		{
+		AddToGroup("player");
+		}
 	}
 
 	public override void _Process(double delta)
